@@ -19,7 +19,7 @@ class Client {
 
 function addEvent(name,over18Flag,date,price) {
 
-    if(systemLocked.value==true) {
+    if(systemLocked.value) {
         console.log("You cannot add anything because the event organizer is turned off.")
         console.log("Turn it on in order to start adding stuff again..")
         return;
@@ -105,9 +105,9 @@ function printSingleEvent(eventId) {
 
     eventsCollection.forEach(function (singleEvent) {
         if(singleEvent.id==eventId) {
-            console.log(singleEvent.name);
-            console.log(singleEvent.over18Flag);
-            console.log(singleEvent.price);
+            console.log("NAME: " + singleEvent.name);
+            console.log("18 FLAG: " + singleEvent.over18Flag);
+            console.log("PRICE: " + singleEvent.price);
         }
     });
 }
@@ -316,17 +316,17 @@ function updateClient(id, name, age, gender) {
     localStorage.removeItem('clientsCollection');
     localStorage.setItem('clientsCollection', JSON.stringify(clientsCollection));
 
-    console.log("Client with ' + id + ' has been updated successfully.");
+    console.log("Client with " + id + " has been updated successfully.");
 }
 
 // add client to event 
 function addClientToEvent(eventId,clientId) {
-    if (eventId == '' || eventId == null) 
+    if (eventId == '') 
     {
         console.log("You must enter id of an event.");
         return;
     }
-    if (clientId == '' || clientId == null) 
+    if (clientId == '') 
     {
         console.log("You must enter id of a client.");
         return;
@@ -370,7 +370,7 @@ function addClientToEvent(eventId,clientId) {
 function printClientsByGender(eventId,gender) {
     if (!Number.isInteger(eventId)) 
     {
-        console.log('Event id must be a number.');
+        console.log("You must enter a number for EventID.");
         return;
     }
 
@@ -487,7 +487,7 @@ function printByFilter(input) {
     console.log('Names of events that match your criteria: ');
     eventsCollection.forEach(function (singleEvent) {
         if (singleEvent.over18Flag == true) {
-            console.log(">>" + singleEvent.name);
+            console.log(">> " + singleEvent.name);
         }
     });
     }  
@@ -495,7 +495,7 @@ function printByFilter(input) {
         console.log('Names of events that match your criteria: ');
         eventsCollection.forEach(function (singleEvent) {
              if (singleEvent.over18Flag == false) {
-                 console.log(">>" + singleEvent.name);
+                 console.log(">> " + singleEvent.name);
             }
          });
     }
