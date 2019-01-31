@@ -1,3 +1,3 @@
 var systemLocked = {
-    value: false
+    value: false;
 };
