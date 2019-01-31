@@ -19,7 +19,7 @@ class Client {
 
 function addEvent(name,over18Flag,date,price) {
 
-    if(systemLocked.value) {
+    if(systemLocked.value==true) {
         console.log("You cannot add anything because the event organizer is turned off.")
         console.log("Turn it on in order to start adding stuff again..")
         return;
@@ -178,9 +178,19 @@ function addClient(name,age,gender) {
     }
     
     let clientsCollection=[];
+
+    if(name==''||name==null) {
+        console.log("Your input for name is incorrect.");
+        return;
+    }
+   
+    if(!Number.isInteger(age)) {
+        console.log("Your input for age is incorrect. Age must be a number.");
+        return;
+    }
  
-    if(localStorage.getItem('clientsCollection')==null)
-    {
+      
+    if(localStorage.getItem('clientsCollection')== null || localStorage.getItem('clientsCollection') == '[]') {
         let id=1;
         let client=new Client(id,name,age,gender);
         clientsCollection.push(client);
@@ -196,7 +206,8 @@ function addClient(name,age,gender) {
         clientsCollection.push(client);
         localStorage.setItem('clientsCollection', JSON.stringify(clientsCollection));
     }
-    console.log("New client has been added successfully.")
+ 
+    console.log("New client has been added successfully.");
 }
  
 function getClients() {
@@ -443,7 +454,7 @@ function groupByOver18Flag(over18Flag) {
 
     let eventsCollection = getEvents();
 
-    if(over18Flag=="true") 
+    if(over18Flag==true) 
     {
     console.log('Events for underaged: ');
     eventsCollection.forEach(function (singleEvent) {
