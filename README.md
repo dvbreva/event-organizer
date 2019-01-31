@@ -37,9 +37,9 @@ printByFilter() - извежда име на събитие/събития, ко
 
 ## Acknowledgments
 Този проект е възможен благодарение на: 
-https://github.com/mihail-petrov/unijs-p1-2018-2019
-https://www.digitalocean.com/community/tutorials/understanding-classes-in-javascript
-https://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/
-https://www.taniarascia.com/how-to-use-local-storage-with-javascript/
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+https://github.com/mihail-petrov/unijs-p1-2018-2019  
+https://www.digitalocean.com/community/tutorials/understanding-classes-in-javascript  
+https://javascriptissexy.com/oop-in-javascript-what-you-need-to-know/  
+https://www.taniarascia.com/how-to-use-local-storage-with-javascript/  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify  
 
